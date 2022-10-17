@@ -7,6 +7,7 @@ from .models import Drink
 from rest_framework.decorators import api_view
 
 
+# show list of goods
 @api_view(['GET', 'POST'])
 def drink_list(request, format=None):
     if request.method == 'GET':
@@ -21,6 +22,7 @@ def drink_list(request, format=None):
             return Response(serializers.data, status=status.HTTP_201_CREATED)
 
 
+# update, add and delete goods
 @api_view(['GET', 'PUT', 'DELETE'])
 def drink_detail(request, id, format=None):
     try:
